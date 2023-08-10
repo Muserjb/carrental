@@ -31,12 +31,15 @@ public class LoginServlet extends HttpServlet {
 	   try {
 		   if(op.equals("logout")) {
 		    	session.invalidate();
-			    ServletUtility.setSuccessMessage("LogoutSucessfully",request);
+			    ServletUtility.setSuccessMessage("Logout Sucessfully",request);
+			    ServletUtility.forward(JWAView.LoginView, request, response);
 			 }
 	   }catch(Exception e) {
 		   System.out.println(e);
 	   }
+		    ServletUtility.setErrorMessage("You most Login first!",request);
 		    ServletUtility.forward(JWAView.LoginView, request, response);
+		    
 	}
 	
 
@@ -48,33 +51,21 @@ public class LoginServlet extends HttpServlet {
 		// UserServiceImpl userServiceImpl = new UserServiceImpl((UserDAO) user);
 	       String login	 		= request.getParameter("username");
 	       String password	 	= request.getParameter("password");
-	       HttpSession session 	= request.getSession(true);
+	       HttpSession session 	= request.getSession();
 	       
 	       UserDAOImpl userDao 		= new UserDAOImpl();
 	       UserServiceImpl userServiceImpl = new UserServiceImpl(userDao);
 	       user = userServiceImpl.UserLogin(login, password);
 	       if(user != null) {
-	    	   session.setAttribute("user", user.getFirstName());
+	    	   session.setAttribute("user", login);
 	           ServletUtility.setSuccessMessage(request.getParameter("username")+ " is login successfully", request);
-	          ServletUtility.redirect(JWAView.indexView, request, response);
+	           //request.getRequestDispatcher(JWAView.indexView).forward(request, response);
+	           ServletUtility.redirect(JWAView.indexView, request, response);
 	       }else {
 	           ServletUtility.setErrorMessage("Invalid User", request);
 	           ServletUtility.forward(JWAView.LoginView, request, response);
 	       }
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
+	
 }

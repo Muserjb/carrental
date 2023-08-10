@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import carRentalManagementSystem.controller.JWAView;
+
 public class ServletUtility {
 	
 	  static String Error = "Invalid data";
@@ -24,6 +26,7 @@ public class ServletUtility {
 	  }
 	  public static void redirect(String page, HttpServletRequest request, HttpServletResponse response)
 	      throws IOException, ServletException {
+		 //request.getRequestDispatcher(page).forward(request, response);
 	    response.sendRedirect(page);
 	  }
 	  public static void handleException(Exception e, HttpServletRequest request, HttpServletResponse response)

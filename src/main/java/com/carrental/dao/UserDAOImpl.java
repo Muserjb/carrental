@@ -124,7 +124,7 @@ public class UserDAOImpl implements UserDAO{
 						user = new User();
 						user.setUsername(resultSet.getString("username"));
 						user.setPassword(resultSet.getString("password"));
-						user.setFirstName(resultSet.getString(""));
+						user.setFirstName(resultSet.getString("full_name"));
 						//user.setLastName(resultSet.getString("last_name"));
 						user.setEmail(resultSet.getString("status"));
 						user.setRole(resultSet.getString("role"));

@@ -1,7 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page import="carRentalManagementSystem.controller.JWAView"%>
+<%@page import="main.java.com.carrental.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+ <% String userSession = session.getAttribute("user").toString();%>
+ <% if(userSession == ""){
+	 System.out.println(userSession);
+	 
+	 ServletUtility.redirect(JWAView.LoginServlet, request, response);
+ }
+ %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +97,7 @@
 <div class="image-container">
     <img src="car.png" alt="Image">
     <div class="image-text">
-        <h1>WELCOME </h1>
+        <h1>WELCOME <%=session.getAttribute("user") %></h1>
         <h4>TO THE CAR RETAL MANAGEMENT SYSTEM</h4>
     </div>
 </div>

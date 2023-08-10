@@ -20,10 +20,22 @@
     </style>
 </head>
 
+
+
+  		
 <body>
     <div class="container">
         <div class="card">
-            <h2 class="text-center">Admin Login</h2>
+            <div class="text-center">
+            <h3>  Admin Login</h3> 
+            <h3 style="color: red;" class="text-center">
+            <% //String userSession = session.getAttribute("user").toString(); %>
+         	 <%=ServletUtility.getErrorMessage(request) %>
+            </h3>
+            <h3 style="color: green;" class="text-center">
+            <%=ServletUtility.getSuccessMessage(request) %>
+            </h3>
+          </div>
             <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
 
                 <div class="form-group">
