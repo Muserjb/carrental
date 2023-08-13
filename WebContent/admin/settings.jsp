@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="carRentalManagementSystem.controller.JWAView"%>
 <html lang="en">
 
 <head>
@@ -20,25 +21,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin_dashboard.html">Dashboard</a>
+                        <a class="nav-link" href="index.jsp">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="car_listings.html">Car Listings</a>
+                        <a class="nav-link" href="<%=JWAView.carCTL%>">Car Listings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reports.html">Reservations</a>
+                        <a class="nav-link" href="<%=JWAView.reservationCTL %>">Reservations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users.html">Users</a>
+                        <a class="nav-link" href="<%=JWAView.userCTL %>">Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reports.html">Reports</a>
+                        <a class="nav-link" href="reports.jsp">Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="settings.html">Settings</a>
+                        <a class="nav-link" href="settings.jsp">Settings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin_login.html">Logout</a>
+                        <a class="nav-link" href="<%=JWAView.LoginServlet+"?operation=logout"%>">Logout</a>
                     </li>
                 </ul>
             </div>

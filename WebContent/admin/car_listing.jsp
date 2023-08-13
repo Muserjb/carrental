@@ -82,7 +82,7 @@
 							<td>${car.carType}</td>
 							<td>${car.carYear}</td>
 							<td>${car.carPrice}</td>
-							<td>${car.carImage}</td>
+							<td>Yet to implement</td>
 							<td>
 	                            <a type="button" class="btn btn-sm btn-primary">Edit</a>
 	                            <a type="submit" href="DeleteCTL?id=${car.carId}" class="btn btn-sm btn-danger">Delete</a>
